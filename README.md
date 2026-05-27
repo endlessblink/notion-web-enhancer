@@ -46,6 +46,25 @@ It loads the real `content/content.css` over a fixture of Notion's captured
 hover-toolbar DOM in a headless browser and asserts the pill hides/shows correctly.
 Uses the globally-installed `playwright` + its bundled chromium (no local install).
 
+## Releasing a new version (one command)
+
+Auto-update is wired through a self-hosted feed (`updates.json` + GitHub
+Releases), so installed copies update themselves. To ship a new version:
+
+```bash
+./release.sh 0.1.3
+```
+
+This bumps `manifest.json`, points `updates.json` at the new release, signs the
+add-on via the AMO API (`web-ext sign`, unlisted), commits + pushes, and cuts the
+GitHub release with the signed `.xpi`. One-time setup: copy
+`.amo-credentials.example` → `.amo-credentials` and fill in your AMO API key +
+secret (from addons.mozilla.org → Developer Hub → Manage API Keys). `gh` must be
+authenticated.
+
+Zen/Firefox picks up the update within ~a day, or force it via `about:addons` →
+gear ⚙ → **Check for Updates**.
+
 ## Fixing a selector after a Notion update
 
 Notion uses obfuscated, changing class names. If a tweak stops working:

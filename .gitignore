@@ -3,3 +3,4 @@ test-results/
 web-ext-artifacts/
 *.log
 *.zip
+.amo-credentials
