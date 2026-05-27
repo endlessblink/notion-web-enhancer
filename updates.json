@@ -1,0 +1,12 @@
+{
+  "addons": {
+    "notion-web-enhancer@endlessblink": {
+      "updates": [
+        {
+          "version": "0.1.2",
+          "update_link": "https://github.com/endlessblink/notion-web-enhancer/releases/download/v0.1.2/notion-web-enhancer-0.1.2.xpi"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+  Regression fixture: a Notion board card with the real hover-toolbar markup
+  captured from notion.so (the "…" + pencil pill). Class names like xjp7ctv are
+  Notion's obfuscated, changing classes — the extension must NOT depend on them.
+  data-testid attributes are test hooks only; they do not affect the CSS selector.
+-->
+<html lang="en">
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <div class="board-card" style="position: relative; width: 280px; height: 80px;">
+      <div data-testid="card-title">A board card title</div>
+
+      <!-- The hover toolbar (captured from live Notion). The outer container has
+           only inline styles + obfuscated children; we target it via :has(). -->
+      <div
+        data-testid="card-toolbar"
+        style="background: #2c2c2c; box-shadow: 0 0 4px #000; display: flex;
+               border-radius: 4px; min-height: 24px; pointer-events: auto;
+               opacity: 1; position: absolute; inset-inline-end: 8px; z-index: 2; top: 8px;"
+      >
+        <div class="xjp7ctv" data-popup-origin="true">
+          <div role="button" tabindex="0" class="x87ps6o x1b7c0jy x1ypdohk"
+               style="display: flex; align-items: center; padding: 4px 6px;">
+            <svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16"
+                 class="pencilLineSmall x1lliihq x2lah0s"><path d="M0 0h1v1H0z"></path></svg>
+          </div>
+        </div>
+        <div class="xjp7ctv" data-popup-origin="true">
+          <div role="button" tabindex="0" class="x87ps6o x1b7c0jy x1ypdohk"
+               style="display: flex; align-items: center; padding: 4px 6px;">
+            <svg aria-hidden="true" role="graphics-symbol" viewBox="0 0 16 16"
+                 class="ellipsisSmall x1lliihq x2lah0s"><path d="M0 0h1v1H0z"></path></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Control: an unrelated popup-origin element with a DIFFERENT icon. The
+         selector must NOT hide this (guards against an over-broad rule). -->
+    <div data-testid="innocent" style="width: 40px; height: 24px;">
+      <div data-popup-origin="true">
+        <div role="button" tabindex="0">
+          <svg viewBox="0 0 16 16" class="searchSmall"><path d="M0 0h1v1H0z"></path></svg>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

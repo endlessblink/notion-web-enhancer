@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Notion Web Enhancer",
+  "version": "0.1.2",
+  "description": "Personal tweaks to make Notion web friendlier. Toggle each feature from the toolbar popup.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Notion Web Enhancer",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.notion.so/*",
+        "https://*.notion.so/*",
+        "https://notion.so/*"
+      ],
+      "css": ["content/content.css"],
+      "js": ["content/content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "notion-web-enhancer@endlessblink",
+      "strict_min_version": "121.0",
+      "update_url": "https://raw.githubusercontent.com/endlessblink/notion-web-enhancer/main/updates.json",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}

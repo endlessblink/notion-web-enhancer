@@ -1,0 +1,9 @@
+{
+  "name": "notion-web-enhancer",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Browser extension that tweaks notion.so via toggleable CSS features.",
+  "scripts": {
+    "test": "NODE_PATH=\"$(npm root -g)\" node --test tests/"
+  }
+}

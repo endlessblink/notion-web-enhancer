@@ -1,0 +1,38 @@
+/*
+ * Notion Web Enhancer — styles
+ *
+ * Each block is gated behind a class on <html> that content.js toggles based on
+ * your settings. This file is the ONLY place you edit to change what a tweak does.
+ *
+ * NOTE ON SELECTORS: Notion ships obfuscated/changing class names, so selectors
+ * may need adjusting after a Notion update. To fix one: right-click the element
+ * in Notion → Inspect, copy a stable-looking selector, and paste it into the
+ * relevant block below.
+ */
+
+/* ── hideCardIcons ──────────────────────────────────────────────────────────
+   Hides the hover toolbar (the "…" more-menu + pencil/edit icons) on board/list
+   cards. Notion's toolbar container has only obfuscated, changing class names, so
+   we target it by the stable bits it *contains*: a `[data-popup-origin]` button
+   wrapping the `ellipsisSmall`/`pencilLineSmall` icon. `:has()` then selects the
+   container so the whole pill (background + both icons) is removed.
+   Requires Chrome 105+ / Firefox 121+ for :has(). */
+html.nx-hide-card-icons
+  div:has(> div[data-popup-origin="true"] > div[role="button"] > svg.ellipsisSmall),
+html.nx-hide-card-icons
+  div:has(> div[data-popup-origin="true"] > div[role="button"] > svg.pencilLineSmall) {
+  display: none !important;
+}
+
+/* ── fullWidthPages ─────────────────────────────────────────────────────────
+   Removes the narrow max-width on page content. */
+html.nx-full-width .notion-page-content,
+html.nx-full-width .notion-frame .notion-scroller > div[style*="max-width"] {
+  max-width: none !important;
+}
+
+/* ── hideHelpButton ─────────────────────────────────────────────────────────
+   Hides the floating help/"?" bubble in the bottom corner. */
+html.nx-hide-help .notion-help-button {
+  display: none !important;
+}

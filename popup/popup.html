@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notion Web Enhancer</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <h1>Notion Web Enhancer</h1>
+    <p class="hint">Changes apply live. Reload a Notion tab if one doesn't.</p>
+
+    <ul class="features">
+      <li>
+        <label>
+          <input type="checkbox" data-key="hideCardIcons" />
+          <span class="title">Hide card hover icons</span>
+          <span class="desc">Removes the “…” menu &amp; pencil/open icons on board cards.</span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="checkbox" data-key="fullWidthPages" />
+          <span class="title">Full-width pages</span>
+          <span class="desc">Use the whole window width instead of the narrow column.</span>
+        </label>
+      </li>
+      <li>
+        <label>
+          <input type="checkbox" data-key="hideHelpButton" />
+          <span class="title">Hide help button</span>
+          <span class="desc">Hides the floating “?” bubble in the corner.</span>
+        </label>
+      </li>
+    </ul>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
